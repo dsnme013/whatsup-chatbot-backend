@@ -17,7 +17,8 @@ const CORS_ORIGINS = [
   "http://localhost:5174",
   "http://127.0.0.1:5174",
   "http://localhost:5175",
-  "http://127.0.0.1:5175"
+  "http://127.0.0.1:5175",
+  "https://whatsup-chatbot-frontend-production.up.railway.app"
 ].filter((origin, index, list) => list.indexOf(origin) === index);
 
 const isLocalDevOrigin = (origin: string | undefined) =>
@@ -120,3 +121,4 @@ process.on("SIGINT", () => void shutdown("SIGINT"));
 process.on("SIGTERM", () => void shutdown("SIGTERM"));
 
 await listen();
+
