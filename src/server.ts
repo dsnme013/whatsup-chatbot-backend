@@ -18,7 +18,7 @@ const CORS_ORIGINS = [
   "http://127.0.0.1:5174",
   "http://localhost:5175",
   "http://127.0.0.1:5175",
-  "https://whatsup-chatbot-frontend-production.up.railway.app"
+  "https://whatsup-chatbot-frontend-production-b33b.up.railway.app"
 ].filter((origin, index, list) => list.indexOf(origin) === index);
 
 const isLocalDevOrigin = (origin: string | undefined) =>
@@ -69,7 +69,7 @@ await initDatabase(app.log);
 
 await app.register(cors, {
   origin: (origin, cb) => {
-    if (process.env.NODE_ENV !== "production" && isLocalDevOrigin(origin)) {
+    if (process.env.CORS_ORIGIN === "*")  {
       cb(null, true);
       return;
     }
